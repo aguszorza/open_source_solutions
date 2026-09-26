@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: temporal-openfaas-callback
+  namespace: temporal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: temporal-openfaas-callback
+  template:
+    metadata:
+      labels:
+        app: temporal-openfaas-callback
+    spec:
+      containers:
+        - name: callback
+          image: temporal-openfaas-callback:dev
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: temporal-openfaas-callback
+  namespace: temporal
+spec:
+  selector:
+    app: temporal-openfaas-callback
+  ports:
+    - port: 8080
+      targetPort: 8080

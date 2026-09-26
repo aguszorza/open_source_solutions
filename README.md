@@ -174,3 +174,5 @@ Workflow result:
 ![Start Workflow](./images/start_workflow.png)
 
 ![Workflow information](./images/workflow_finished.png)
+
+You can now create your own functions, deploy them to open-faas and create your own pipelines with Temporal to run your functions 
