@@ -1,0 +1,9 @@
+template
+build
+.secrets
+
+
+venv
+.venv
+__pycache__
+*.pyc
